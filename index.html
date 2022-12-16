@@ -1,0 +1,77 @@
+<html lang="ru">
+<head>
+    <meta charSet="UTF-8">
+    <title></title>
+<!--    <link rel="stylesheet" href="style.css">-->
+    <style>
+        #inAS, #butt, #str{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .bg {
+            animation:slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-120deg, #572934 20%, greenyellow 80% );
+            bottom:0;
+            left:-50%;
+            opacity:.5;
+            position:fixed;
+            right:-50%;
+            top:0;
+            z-index:-1;
+        }
+        .bg2 {
+            animation-direction:alternate-reverse;
+            animation-duration:3s;
+        }
+
+        .bg3 {
+            animation-duration:2s;
+        }
+        .content {
+            opacity: .9;
+            color: white;
+            border-radius:.25em;
+            box-shadow:0 0 .25em rgba(0,0,0,.25);
+            box-sizing:border-box;
+            left:50%;
+            position:fixed;
+
+            top:50%;
+            transform:translate(-50%, -50%);
+        }
+    </style>
+    <script>
+
+        function myFunc()  {
+            var as= document.getElementById('inAS').value;
+            let sh,ah=5,bh=5,ac,La=0.5,Ld=0.5,s1,s2,s3;
+            ah=1/2*as;
+            sh=Math.sqrt(as-ah);
+            s3=sh;
+            if(La == Ld){
+                s2=La;
+            }
+            s1=5;
+            if(ah === bh){
+                s1=La;
+            }else{
+                s1=2;
+            }
+            document.getElementById('str').innerHTML="Координати дрона ("+s1+";"+s2+";"+s3+")";
+        };
+    </script>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+    <label for="inAS">Введіть відстань від мікрофона до дрону </label><input type="text" id="inAS" name="speaker #002" size="10">
+    <input id="butt" type="button" value="Кнопка" onclick="myFunc()"/>
+    <div id="str"></div>
+</div>
+</body>
+</html>
